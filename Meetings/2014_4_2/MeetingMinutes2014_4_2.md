@@ -30,6 +30,8 @@
  
 ###Notes
 
+* Box.com is not permitted by all organizations.  Instead we will use GitHub for file collaboration and review
+    * [https://github.com/ros-industrial-consortium/roadmapping](https://github.com/ros-industrial-consortium/roadmapping)
 * Reviewed brainstorming/mindmap from [previous meeting](../2014_3_6/RoadmappingNotes2014_3_6.pdf)
 * Conducted new brainstorming on end user needs (use cases) as documented in the [mindmap](RoadmappingNotes2014_4_2.pdf)
     * Multiple use cases for adaptive welding
@@ -41,4 +43,5 @@
 * Provide Meeting Minutes - Clay
 
 ###Next Meeting
+
 Wednesday, April 30 10:00 Central
