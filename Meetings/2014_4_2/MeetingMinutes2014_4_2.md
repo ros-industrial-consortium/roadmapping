@@ -12,7 +12,7 @@
 * Motoman: Eric Marcil
 * NIST: Fred Proctor
 * OmnicO AGV: Jerry Vannest
-* Spirit AeroSystems: Greg Balandran
+* Spirit AeroSystems: Greg Balandran, Joe Marshall
 * SwRI: Clay Flannigan, Shaun Edwards, Paul Hvass
 
 ###Agenda
