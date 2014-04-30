@@ -136,3 +136,47 @@ __Technology Areas:__
 * Human pose tracking
 * High fidelity force/impedance control
 
+### 6. Machine Tool Blending
+
+__Stakeholder:__ Machined Part Manufacturers
+
+__Scope:__ Material Removal
+
+__Description:__ Machined parts leave small tooling marks that are often undesirable for to aesthetic or surface quality reasons.  Current practice is to manually blend the tool marks with sanding, grinding, or other processes.  A robotic system is needed that has the flexibility to deal with a wide variety of parts and surface conditions.  Fixturing must be simple and flexible between parts.  Robot programming should be intuitive such that the operator only selects the regions to be blended.  The system will have the ability to automatically inspect the result and modulate the process based on the surface state feedback.
+
+__Success Criteria:__
+
+* Flexible: Tooling and robot programming need to be able to handle a wide variety of parts
+* Minimal setup: Minimal or no part registration
+* Simple Programming: Line operator should be able to "program" a new part
+* Coverage: Needs to be able to process _80% of a typical CNC output_
+  
+__Technology Areas:__
+
+* Automated part registation
+* Collision checking
+* Cluttered environment path planning
+* Constraint obeying path planning
+* Machined surfaces sensing/characterization
+* GUI interface for selecting surfaces
+* Point cloud processing to extract surfaces
+
+### 7. Speed Optimized Path Planner
+
+__Stakeholder:__ Manufacturer/Product Developers with High Speed Material Handling Needs
+
+__Scope:__ Material Handling
+
+__Description:__ A generalized path planner is envisioned for speed-optimized path planning that obeys Cartesian constraints.  A robotic system is needed that provides optimal or near optimal path plans for high DOF systems (6/7 axis articulated arms) that perform material handling tasks.  For example, a fluid container handing robot may need to obey Cartesian constraints to keep the container near vertical while moving in free-space.  More sophisticated constraint models are envisioned, for example that would take into account the dynamics of the fluid in the container to achieve greater accelerations/speeds.  The planning needs to be real-time to account for dynamic replanning.
+
+__Success Criteria:__
+
+* High Performance: plans that are near the theoretical speed (acceleration) of the machine while obeying the constraints
+* Fast Planning: _< 1 second plan time_
+* Flexible: Able to accomodate multiple serial kinematic configurations including redundant ones 
+  
+__Technology Areas:__
+
+* Collision checking
+* Cluttered environment path planning
+* Optimal path planning with constraints
