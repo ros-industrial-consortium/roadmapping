@@ -34,6 +34,8 @@ __Technology Areas:__
 * Collision checking integrated into IK solution
 * Visual (kinematic) simulation
 * Operator friendly GUI or wizard interface
+
+![MindMap](pics/CMMAccelerated.png)
 	
 ### 2. Mobile Material Handling
 
@@ -64,6 +66,8 @@ __Technology Areas:__
 * Low cost, high dexterity manipulators
 * Human safe designs, considering ISO 10218 | RIA R15.06
 
+![MindMap](pics/MobileMaterialHandling.png)
+
 ### 3. Heavy Helper
 
 __Stakeholder:__ Manufacturers with large/heavy objects to be transported or fixtured
@@ -88,6 +92,8 @@ __Technology Areas:__
 * Omni directional bases (optional)
 * Human safe designs, considering ISO 10218 | RIA R15.06
 
+![MindMap](pics/HeavyHelper.png)
+
 ### 4. Scan 'n' Weld
 
 __Stakeholder:__ Large Weldment Manufacturers
@@ -110,6 +116,8 @@ __Technology Areas:__
 * Constraint-obeying path planning (inverse kinematics)
 * Collision checking integrated into IK solution
 * Cluttered environment path planning
+
+![MindMap](pics/ScanNWeld.png)
 
 ### 5. Human Collaborative Assembly
 
@@ -135,6 +143,8 @@ __Technology Areas:__
 * Cluttered environment path planning
 * Human pose tracking
 * High fidelity force/impedance control
+
+![MindMap](pics/Collaborative.png)
 
 ### 6. Machine Tool Blending
 
