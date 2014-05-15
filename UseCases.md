@@ -74,7 +74,7 @@ __Stakeholder:__ Manufacturers with large/heavy objects to be transported or fix
 
 __Scope:__ Material Handling
 
-__Description:__ A manufacturer has material transport needs or part fixturing needs that are too large for safe manual operation, i.e. > 50 pounds or awkward to handle.  The operator instead uses a (potentially mobile) robotic manipulator under guided operation to pick and position the part.  The part may be immediately dropped off or positioned for further operation such as welding, painting, or inspection.  The robot is flexible enough to pick a range of parts of similar class.  The user interface may be a direct guided operation or perhaps via a non-contact method such as a gesture command.
+__Description:__ A manufacturer has material transport needs or part fixturing needs that are too large for safe manual operation, i.e. > 50 pounds or awkward to handle.  The operator instead uses a (potentially mobile) robotic manipulator under guided operation to pick and position the part.  The part may be immediately dropped off or positioned for further operation such as welding, painting, or inspection.  The robot is flexible enough to pick a range of parts of similar class.  The user interface may be a direct guided operation or perhaps via a non-contact method such as a gesture command. Due to the fact that large/heavy objects may introduce significant dynamics into the system, force feedback could be beneficial when performing remote guided operation.
 
 __Success Criteria:__
 
@@ -86,6 +86,7 @@ __Success Criteria:__
 __Technology Areas:__
 
 * Gesture or command recognition (optional)
+* Remote guidance interface incorporating force feedback
 * Guidance sensor (force etc.)
 * Gravity compensation
 * Adaptable grippers
@@ -152,7 +153,7 @@ __Stakeholder:__ Machined Part Manufacturers
 
 __Scope:__ Material Removal
 
-__Description:__ Machined parts leave small tooling marks that are often undesirable for to aesthetic or surface quality reasons.  Current practice is to manually blend the tool marks with sanding, grinding, or other processes.  A robotic system is needed that has the flexibility to deal with a wide variety of parts and surface conditions.  Fixturing must be simple and flexible between parts.  Robot programming should be intuitive such that the operator only selects the regions to be blended.  The system will have the ability to automatically inspect the result and modulate the process based on the surface state feedback.
+__Description:__ Machined parts leave small tooling marks that are often undesirable for to aesthetic or surface quality reasons.  Current practice is to manually blend the tool marks with sanding, grinding, or other processes.  A robotic system is needed that has the flexibility to deal with a wide variety of parts and surface conditions.  Due to the presence of contact with a surface whose characteristics are not well known, force control could be considered to complement position control. Fixturing must be simple and flexible between parts.  Robot programming should be intuitive such that the operator only selects the regions to be blended.  Ideally,  the programming interface should be such that machine tool experts can program the robot without requiring additional knowledge about robotics. CAM packages such as MasterCAM or Catia's advanced machining module could be used as a starting point and adapted for robot programming. The system will have the ability to automatically inspect the result and modulate the process based on the surface state feedback.
 
 __Success Criteria:__
 
@@ -167,7 +168,10 @@ __Technology Areas:__
 * Collision checking
 * Cluttered environment path planning
 * Constraint obeying path planning
+* Robot program generation from CAM output file (APTsource, G-code...)
 * Machined surfaces sensing/characterization
+* Actual to ideal(CAD) part comparison to extract process parameters
+* Force control 
 * GUI interface for selecting surfaces
 * Point cloud processing to extract surfaces
 
@@ -177,7 +181,7 @@ __Stakeholder:__ Manufacturer/Product Developers with High Speed Material Handli
 
 __Scope:__ Material Handling
 
-__Description:__ A generalized path planner is envisioned for speed-optimized path planning that obeys Cartesian constraints.  A robotic system is needed that provides optimal or near optimal path plans for high DOF systems (6/7 axis articulated arms) that perform material handling tasks.  For example, a fluid container handing robot may need to obey Cartesian constraints to keep the container near vertical while moving in free-space.  More sophisticated constraint models are envisioned, for example that would take into account the dynamics of the fluid in the container to achieve greater accelerations/speeds.  The planning needs to be real-time to account for dynamic replanning.
+__Description:__ A generalized path planner is envisioned for speed-optimized path planning that obeys Cartesian constraints.  A robotic system is needed that provides optimal or near optimal path plans for high DOF systems (6/7 axis articulated arms) that perform material handling tasks.  For example, a fluid container handing robot may need to obey Cartesian constraints to keep the container near vertical while moving in free-space.  More sophisticated constraint models are envisioned, for example that would take into account the dynamics of the fluid in the container to achieve greater accelerations/speeds.  The planning needs to be real-time to account for dynamic replanning. In addition to kinematic considerations, speed optimized trajectories need to take into account robot dynamics (masses, inertias, joint elasticity...) in order to ensure proper tracking. The planner should be able to rely on an accurate dynamic model of the robot and payload.  
 
 __Success Criteria:__
 
@@ -190,3 +194,5 @@ __Technology Areas:__
 * Collision checking
 * Cluttered environment path planning
 * Optimal path planning with constraints
+* Redundancy resolution
+* Dynamic modelling and simulation
