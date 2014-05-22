@@ -31,7 +31,7 @@
 ###Action Items
 
 * Begin consolidating technology brainstorming into a requirements list - Clay
-* Add Robotic CNC use case - Clay
+* Add Robotic CNC and 3D printing Use Cases - Clay
 
 ###Next Meeting
 
