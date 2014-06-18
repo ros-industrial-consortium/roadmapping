@@ -112,7 +112,7 @@ __Success Criteria:__
 __Technology Areas:__
 
 * Weld process controller
-* Automated part registation
+* Automated part registration
 * Weld joint sensing
 * Constraint-obeying path planning (inverse kinematics)
 * Collision checking integrated into IK solution
@@ -195,4 +195,46 @@ __Technology Areas:__
 * Cluttered environment path planning
 * Optimal path planning with constraints
 * Redundancy resolution
-* Dynamic modelling and simulation
+* Dynamic modeling and simulation
+
+### 8. Robotic 3D Printing
+
+__Stakeholder:__ Manufacturers and Product Designers who Need Large Scale "Printed" Structures
+
+__Scope:__ Additive Manufacturing
+
+__Description:__ There exist many applications of high-accuracy and small scale additive manufacturing processes such as 3D Printing (FDM) and Selective Laser Sintering (SLS).  However, there are relatively few examples of large (robot scale) processes which may have lower accuracy requirements (mm instead of microns).  Envisioned in a capability to 3D "print" materials using robotic technologies that scale in size to civil engineering products.  CNC machining path planning is needed for high-accuracy paths (square corners etc.) and potentially very large applications may use mobile navigation technologies.  Process feedback may be used to adjust the process and path plan in real-time based on the as-built structure.
+
+__Success Criteria:__
+
+* Accuracy: Planning and process control that achieves part accuracy on the order of the robot kinematic accuracy
+    * May require robot localization techniques using intrinsic or extrinsic sensing
+* Flexibility: Planning must be executed from CAD in an offline environment (no online teaching)
+* Process Planning: Certain additive processes may have unique demands in planning and feedback control that need to be accommodated
+  
+__Technology Areas:__
+
+* CAM/CNC (CAD to path) Planning
+* Robot Localization
+* Real-time path correction based on sensor feedback
+
+### 9. Robot Cell Layout and Optimization
+
+__Stakeholder:__ Any Robot User with Needs to Optimize Reach and Speed of a Robot Manipulator
+
+__Scope:__ Any Robot User
+
+__Description:__ One fundamental challenge with robotic manipulation is the placement of the robot with respect to the workpiece.  This is a non-trivial problem because of high dimensionally (6DOF position and orientation), and complexity of motion profiles.  Traditional methods use off-line CAD tools to perform reach studies that are typically limited to a few test cases.  One can also look at manipulability through a robot's workspace, but this is independent of the true motion profiles.  There is a need for a tool to optimize (based on cycle time, floor space, reach, flexibility etc.) the layout of a robot workspace in a robust and automated way.
+
+__Success Criteria:__
+
+* Flexible: Arbitrary kinematic models and workspaces need to be accommodated
+* Complete: Representative path plans need to be provided by another tool (off line programmer) or automatically generated
+* Fast: New simulations should be created and executed in less than a day for typical workcells and motion profiles
+  
+__Technology Areas:__
+
+* Automated (approximate) path planning from CAD or heuristic
+* Optimization/simulation tool
+* Workspace visualization
+
