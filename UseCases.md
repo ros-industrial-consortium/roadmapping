@@ -203,7 +203,7 @@ __Stakeholder:__ Manufacturers and Product Designers who Need Large Scale "Print
 
 __Scope:__ Additive Manufacturing
 
-__Description:__ There exist many applications of high-accuracy and small scale additive manufacturing processes such as 3D Printing (FDM) and Selective Laser Sintering (SLS).  However, there are relatively few examples of large (robot scale) processes which may have lower accuracy requirements (mm instead of microns).  Envisioned in a capability to 3D "print" materials using robotic technologies that scale in size to civil engineering products.  CNC machining path planning is needed for high-accuracy paths (square corners etc.) and potentially very large applications may use mobile navigation technologies.  Process feedback may be used to adjust the process and path plan in real-time based on the as-built structure.
+__Description:__ There exist many applications of high-accuracy and small scale additive manufacturing processes such as 3D Printing (FDM) and Selective Laser Sintering (SLS).  However, there are relatively few examples of large (robot scale) processes which may have lower accuracy requirements (mm instead of microns).  Envisioned is a capability to 3D "print" materials using robotic technologies that scale in size to civil engineering products.  CNC machining path planning is needed for high-accuracy paths (square corners etc.) and potentially very large applications may use mobile navigation technologies.  Process feedback may be used to adjust the process and path plan in real-time based on the as-built structure.
 
 __Success Criteria:__
 
@@ -238,3 +238,24 @@ __Technology Areas:__
 * Optimization/simulation tool
 * Workspace visualization
 
+### 10. Robot CNC Machining for High Accuracy and Large Scale
+
+__Stakeholder:__ Aerospace, Heavy Industry, Civil and other Large Product Producers 
+
+__Scope:__ Machining
+
+__Description:__ Traditional large scale machining is accomplished by dedicated 3 or 5 axis machining centers.  For very large parts, common in fields such as aerospace, bridge or gantry style machining centers are used.  These tools are very expensive and require significant facility infrastructure including floorspace and foundations.  Envisioned is a mobile robot capability that would address medium-accuracy and large-scale machining of low to medium strength materials such as sheet metal, aluminum, and carbon fiber.  The robot would need to be mobile to achieve large scale, flexibility, and low cost.  An external metrology system would be required to generate high accuracy tool paths.
+
+__Success Criteria:__
+
+* Flexible: Arbitrary workpiece forms and sizes should be easily accommodated
+* Accuracy: Machined part accuracy of 0.25mm/meter
+* Large Scale: Demonstrated work volume of 2 x 2 x 1.5 meter
+  
+__Technology Areas:__
+
+* CNC Path Planning
+* Workspace visualization
+* High accuracy external localization
+* Robot mobility platform
+* Automated part registration
