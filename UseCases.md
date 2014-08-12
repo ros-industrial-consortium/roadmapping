@@ -60,7 +60,7 @@ __Technology Areas:__
 * Cluttered scene 3D mapping
 * Object recognition/pose estimation in clutter
 * Manipulator planning in cluttered environment
-* Grasp planing with clutter/uncertainty
+* Grasp planning with clutter/uncertainty
 * Adaptable grippers
 * Omni directional bases
 * Low cost, high dexterity manipulators
