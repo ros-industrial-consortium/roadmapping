@@ -64,4 +64,37 @@ The technology areas (capabilities) mapped against the use cases (applications) 
 The events shown have direct impact on the application areas and will result in development within many of the capabilities areas.  The red connector lines represent concurrent development activities between projects and the capabilities.  The blue lines represent dependencies between technologies and their application.
 
 ### 5. Identify Alternatives and Gaps
-The summaries above provide a high level overview of the needs and potential technology solutions.  In reality, each application will have detailed requirements that need to be mapped against features and performance of various tools within the ROS-Industrial community.  This section attempts to define more specifically the needs 
+The summaries above provide a high level overview of the needs and potential technology solutions.  In reality, each application will have detailed requirements that need to be mapped against features and performance of various tools within the ROS-Industrial community.  This section attempts to define more specifically some of those needs.
+
+#### Path Planning
+
+The path planning subtopic is a cross-cutting and high priority need for the ROS-Industrial community.  Although the broader ROS community continues to focus significant efforts in this area, many of the problems that are of interest to researchers and "field" roboticists involved operation in high unstructured domains.  These environments are characterized by clutter, uncertainty, and lack of _a priori_ knowledge.  Most industrial applications are afforded more structure such as conveyors, fixturing, and static cells.  Thus, industrial user expect higher performance as measured by cycle time, reliability, and determinism, at the expense of ability to accomodate greater uncertainty in the environment.
+
+##### Alternatives
+There are many competing alternatives for articulated arm path planning that include:
+
+* [MoveIt!](http://moveit.ros.org): The MoveIt! framework is really a higher level construct that provides the facilities for various path planning codes.
+* [OPML](http://ompl.kavrakilab.org): OMPL is library of sampling-based planners that are the defaults for ROS.
+* [SBPL](http://wiki.ros.org/sbpl): The search-based planning library is a graph search framework.
+* [OpenRave](http://openrave.org): OpenRave is a full environment for planning and simulation and other planners may be used as plug-ins.
+* [CHOMP](http://wiki.ros.org/chomp_motion_planner): Optimization based planners.
+* [Orocos/KDL](http://www.orocos.org/kdl): Orocos is a larger framework for robot control including state estimation and realtime components.  KLDL provides kinematics solvers including trajectory planners.
+
+Most of these alternatives are actually frameworks or libraries that permit extension and adaptation for varied planning algorithms.  As such, all could be employed for ROS-Industrial applications.  However, MoveIt! is the leading framework within the ROS community moving forward.  Consequently, it is the recommended development environment.
+
+##### Gaps
+Among these frameworks, numerous planning algorithms are possible, but most are inappropriate for industrial problems.  For example, the [RRT](http://en.wikipedia.org/wiki/Rapidly_exploring_random_tree) (Rapidly-Exploring Random Tree) algorithm is a common sampling-based planner that efficiently searches through high dimensional configuration spaces to find planning solutions.  It can do so while handling geometric constraints.  However, it fundamentally searches for a single goal state from an initial state.  This may be acceptable for some material handling applications where only one pick and place location is needed, but many industrial processes have requirements for following an entire Cartesian path with known accuracy.  An example is a welding application where the robot is required to follow a known position trajectory, perhaps with some flexibility in the weld gun orientation.  In general, industrial path planners have the following desirable features:
+
+* Able to follow arbitrary Cartesian paths with known accuracies (not just end goals)
+* Able to permit flexible orientation for some orientation degrees of freedom, generally within process limits
+* Able to constrain velocities along the Cartesian path
+
+None of the known path planners directly provide this set of capabilities and this is a significant barrier for implementing ROS-Industrial applications for processes such as painting, welding, material removal, deposition and other path-based plans.  Note that there is ongoing work within ROS-Industrial to address this planner including an [optimizing inverse kinematics trajectory planner](http://wiki.ros.org/industrial_moveit) and a [hybrid Cartesian planner](https://github.com/ros-industrial-consortium/descartes).
+
+In addition, several other needs were identified such as multi arm coordinated planning and cycle-time optimized planning.  Both of these are addressed in some capacity [here](https://github.com/ros-industrial/motoman/tree/hydro-devel/motoman_sda10f_support) for dual arm Motoman support and [here](http://static.squarespace.com/static/51df34b1e4b08840dcfd2841/t/53c3435ce4b00a24507b341d/1405305692771/IDEXX_Planning_Presentation.pdf) for cycle-time optimized planning.
+
+In summary, this is cross-cutting need (nearly all the use cases have a requirement) and there is significant opportunity to make a contributions to these goals.  This need is a high priority for ROS-industrial users.  
+
+### 6. Recommendations and Priorities
+
+To Do
