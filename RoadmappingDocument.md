@@ -26,7 +26,7 @@ The process roughly follows the [Sandia National Lab Fundamentals of Roadmapping
 ### 1. __Define Scope and Participants__
 See above for scope and RIC member participants
 
-### 2. Create a Common Vision for the Product/technology
+### 2. Create a Common Vision for the Product/Technology
 This document does not attempt to take ownership of the ROS-Industrial Project vision; instead one might look towards the [project website](http://rosindustrial.org), or more broadly, [ROS.org](http://ros.org).  The following is offered to gain alignment and a common language:
 
 __Vision:__ ROS-Industrial provides an open and flexible framework for advanced robotics development that:
@@ -43,7 +43,7 @@ __Vision:__ ROS-Industrial provides an open and flexible framework for advanced 
 This was accomplished through a use case elicitation process, which is summared in the [Use Cases](UseCases.md).  Ten broad use cases were identified.
 
 ### 4. Define Technology areas
-The technology areas were extracted from the [Use Cases](UseCases.mb) and then defined through a series of [virtual brainstorming meetings](https://github.com/ros-industrial-consortium/roadmapping/tree/master/Meetings).  The result is summarize in the mind map below.
+The technology areas were extracted from the [Use Cases](UseCases.mb) and then defined through a series of [virtual brainstorming meetings](https://github.com/ros-industrial-consortium/roadmapping/tree/master/Meetings).  The result is summarized in the mind map below.
 
 ![ROS-Industrial Technology Area Summary](pics/TechnologyAreaSummary_small.jpg)
 
@@ -51,7 +51,7 @@ One can observe that the areas were categorized into six technical subtopics and
 
 1. __Hardware Interfaces:__ new interfaces to other robot contorllers, sensors and actuators
 2. __Human Interfaces:__ new ways to interact with humans by "traditional" means such as graphical interfaces or non-traditional means such as gesture commanads
-3. __Workspace Modeling:__ rapid generation of environement models and how to configure the robot within those environements
+3. __Workspace Modeling:__ rapid generation of environement models and how to configure the robot within those environments
 4. __Work-Object Pose Estimation:__ identification and locating known objects in unknown locations (unstructured)
 5. __Path Planning:__ determining optimal motion plans for a robot manipulator while obeying process constraints
 6. __Mobility:__ topics unique to mobile platforms including localization and navigation
@@ -68,15 +68,15 @@ The summaries above provide a high level overview of the needs and potential tec
 
 #### Path Planning
 
-The path planning subtopic is a cross-cutting and high priority need for the ROS-Industrial community.  Although the broader ROS community continues to focus significant efforts in this area, many of the problems that are of interest to researchers and "field" roboticists involved operation in high unstructured domains.  These environments are characterized by clutter, uncertainty, and lack of _a priori_ knowledge.  Most industrial applications are afforded more structure such as conveyors, fixturing, and static cells.  Thus, industrial user expect higher performance as measured by cycle time, reliability, and determinism, at the expense of ability to accomodate greater uncertainty in the environment.
+The path planning subtopic is a cross-cutting and high priority need for the ROS-Industrial community.  Although the broader ROS community continues to focus significant efforts in this area, many of the problems that are of interest to researchers and "field" roboticists involve operation in highly unstructured domains.  These environments are characterized by clutter, uncertainty, and lack of _a priori_ knowledge.  Most industrial applications are afforded more structure such as conveyors, fixturing, and static workcells.  Thus, industrial users expect higher performance as measured by cycle time, reliability, and determinism, at the expense of ability to accomodate greater uncertainty in the environment.
 
 ##### Alternatives
 There are many competing alternatives for articulated arm path planning that include:
 
-* [MoveIt!](http://moveit.ros.org): The MoveIt! framework is really a higher level construct that provides the facilities for various path planning codes.
+* [MoveIt!](http://moveit.ros.org): The MoveIt! framework is actually a higher level construct that provides the facilities for various path planning codes.
 * [OPML](http://ompl.kavrakilab.org): OMPL is library of sampling-based planners that are the defaults for ROS.
 * [SBPL](http://wiki.ros.org/sbpl): The search-based planning library is a graph search framework.
-* [OpenRave](http://openrave.org): OpenRave is a full environment for planning and simulation and other planners may be used as plug-ins.
+* [OpenRave](http://openrave.org): OpenRave is a full environment for planning and simulation including a plug-in architecture for other codes.
 * [CHOMP](http://wiki.ros.org/chomp_motion_planner): Optimization based planners.
 * [Orocos/KDL](http://www.orocos.org/kdl): Orocos is a larger framework for robot control including state estimation and realtime components.  KLDL provides kinematics solvers including trajectory planners.
 
@@ -88,12 +88,13 @@ Among these frameworks, numerous planning algorithms are possible, but most are 
 * Able to follow arbitrary Cartesian paths with known accuracies (not just end goals)
 * Able to permit flexible orientation for some orientation degrees of freedom, generally within process limits
 * Able to constrain velocities along the Cartesian path
+* Able to plan collision free trajectories along the entire path
 
-None of the known path planners directly provide this set of capabilities and this is a significant barrier for implementing ROS-Industrial applications for processes such as painting, welding, material removal, deposition and other path-based plans.  Note that there is ongoing work within ROS-Industrial to address this planner including an [optimizing inverse kinematics trajectory planner](http://wiki.ros.org/industrial_moveit) and a [hybrid Cartesian planner](https://github.com/ros-industrial-consortium/descartes).
+None of the known path planners directly provide this set of capabilities and this is a significant barrier for implementing ROS-Industrial applications for processes such as painting, welding, material removal, deposition and other path-based plans.  Note that there is ongoing work within the ROS-Industrial Community to address some of these needs including an [optimizing inverse kinematics trajectory planner](http://wiki.ros.org/industrial_moveit) and a [hybrid Cartesian planner](https://github.com/ros-industrial-consortium/descartes).
 
-In addition, several other needs were identified such as multi arm coordinated planning and cycle-time optimized planning.  Both of these are addressed in some capacity [here](https://github.com/ros-industrial/motoman/tree/hydro-devel/motoman_sda10f_support) for dual arm Motoman support and [here](http://static.squarespace.com/static/51df34b1e4b08840dcfd2841/t/53c3435ce4b00a24507b341d/1405305692771/IDEXX_Planning_Presentation.pdf) for cycle-time optimized planning.
+In addition, several other needs were identified such as multi arm coordinated planning and cycle-time optimized planning.  Both of these are addressed in some capacity [here](https://github.com/ros-industrial/motoman/tree/hydro-devel/motoman_sda10f_support) for dual arm Motoman support and [here](http://static.squarespace.com/static/51df34b1e4b08840dcfd2841/t/53c3435ce4b00a24507b341d/1405305692771/IDEXX_Planning_Presentation.pdf) for cycle-time optimized planning.  More work is require to broaden and generalize these solutions.
 
-In summary, this is cross-cutting need (nearly all the use cases have a requirement) and there is significant opportunity to make a contributions to these goals.  This need is a high priority for ROS-industrial users.  
+In summary, path planning is cross-cutting need (nearly all the use cases have driving requirements) and there is significant opportunity to make a contributions to these goals.  This need is a high priority for ROS-industrial users.  
 
 ### 6. Recommendations and Priorities
 
