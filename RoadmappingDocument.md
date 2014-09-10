@@ -39,11 +39,11 @@ __Vision:__ ROS-Industrial provides an open and flexible framework for advanced 
 * Reduces implementation costs
 * Foster growth of commercial developments
 
-### 3. Idenfity Stateholder requirements
+### 3. Identify Stakeholder requirements
 This was accomplished through a use case elicitation process, which is summared in the [Use Cases](UseCases.md).  Ten broad use cases were identified.
 
 ### 4. Define Technology areas
-The technology areas were extracted from the [Use Cases](UseCases.mb) and then defined through a series of [virtual brainstorming meetings](https://github.com/ros-industrial-consortium/roadmapping/tree/master/Meetings).  The result is summarized in the mind map below.
+The technology areas were extracted from the [Use Cases](https://github.com/ros-industrial-consortium/roadmapping/blob/master/UseCases.md) and then defined through a series of [virtual brainstorming meetings](https://github.com/ros-industrial-consortium/roadmapping/tree/master/Meetings).  The result is summarized in the mind map below.
 
 ![ROS-Industrial Technology Area Summary](pics/TechnologyAreaSummary_small.jpg)
 
