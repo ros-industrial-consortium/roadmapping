@@ -74,7 +74,7 @@ The path planning subtopic is a cross-cutting and high priority need for the ROS
 There are many competing alternatives for articulated arm path planning that include:
 
 * [MoveIt!](http://moveit.ros.org): The MoveIt! framework is actually a higher level construct that provides the facilities for various path planning codes.
-* [OPML](http://ompl.kavrakilab.org): OMPL is library of sampling-based planners that are the defaults for ROS.
+* [OMPL](http://ompl.kavrakilab.org): OMPL is library of sampling-based planners that are the defaults for ROS.
 * [SBPL](http://wiki.ros.org/sbpl): The search-based planning library is a graph search framework.
 * [OpenRave](http://openrave.org): OpenRave is a full environment for planning and simulation including a plug-in architecture for other codes.
 * [CHOMP](http://wiki.ros.org/chomp_motion_planner): Optimization based planners.
