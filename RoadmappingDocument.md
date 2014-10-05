@@ -4,9 +4,9 @@
 To do
 
 ## Purpose
-This document summarizes the ROS-Industrial Consortium (RIC) Americas efforts to provide a technical roadmap for the ROS-Industrial open source project.  It consolidates the input of nearly two dozen member organizations that met in person and virtually during 2014.  The roadmap attempts to identify technical needs based on end-user requirements for automation and robotics.  Given these needs, the capabilities of the ROS-Industrial project can be mapped and gaps identified.  Ultimately, this roadmap can then be used to allocate resources to address these gaps.
+This document summarizes the ROS-Industrial Consortium (RIC) Americas efforts to provide a technical roadmap for the ROS-Industrial open source project.  It consolidates the input of nearly two dozen member organizations and other contributors that met in person and virtually during 2014.  The roadmap attempts to identify technical needs based on end-user requirements for automation and robotics.  Given these needs, the capabilities of the ROS-Industrial project can be mapped and gaps identified.  Ultimately, this roadmap can then be used to allocate resources to address these gaps.
 
-![RIC Membership as of July 2014](pics/RICMembersJuly2014.jpg)
+![RIC Membership as of September 2014](pics/RICMembersSept2014.jpg)
 
 ## Scope
 The scope has been limited to potential ROS-Industrial end-user needs, as expressed by the consortium members, and does not directly address developer, integrator or other stakeholders needs.  It is prioritized based on feedback from current ROS-Industrial Consortium members, but may be revised as additional members join the consortium and additional user needs are identified.  It is envisioned as a living document that requires periodic updates.  The process is intentionally limited to addressing technical needs, although some non-technical requirements such as training and documentation have been identified.  Specific implementation or development plans are also avoided since these may be dependent on funding sources and participating organizations.
@@ -24,12 +24,12 @@ The process roughly follows the [Sandia National Lab Fundamentals of Roadmapping
 8. Develop implementation plans
 
 ### 1. __Define Scope and Participants__
-See above for scope and RIC member participants
+See above for scope and RIC member participants.  I would also like to highlight our European partners in particular TU Delft and Fraunhofer IPA.
 
 ### 2. Create a Common Vision for the Product/Technology
 This document does not attempt to take ownership of the ROS-Industrial Project vision; instead one might look towards the [project website](http://rosindustrial.org), or more broadly, [ROS.org](http://ros.org).  The following is offered to gain alignment and a common language:
 
-__Vision:__ ROS-Industrial provides an open and flexible framework for advanced robotics development that:
+__Vision:__ ROS-Industrial provides an open and flexible framework for manufacturing automation development that:
 
 * Enables cross-platform compatibility  
 * Creates new applications that were previously infeasible or impractical
@@ -47,11 +47,11 @@ The technology areas were extracted from the [Use Cases](https://github.com/ros-
 
 ![ROS-Industrial Technology Area Summary](pics/TechnologyAreaSummary_small.jpg)
 
-One can observe that the areas were categorized into six technical subtopics and one non-technical topic (Supporting Services).  The numbers in parethesis represent the number of use-cases that have needs in these areas.  The  topic areas are:
+One can observe that the areas were categorized into six technical subtopics and one non-technical topic (Supporting Services).  The numbers in parenthesis represent the number of use-cases that have needs in these areas.  The topic areas are:
 
-1. __Hardware Interfaces:__ new interfaces to other robot contorllers, sensors and actuators
-2. __Human Interfaces:__ new ways to interact with humans by "traditional" means such as graphical interfaces or non-traditional means such as gesture commanads
-3. __Workspace Modeling:__ rapid generation of environement models and how to configure the robot within those environments
+1. __Hardware Interfaces:__ new interfaces to other robot controllers, sensors and actuators
+2. __Human Interfaces:__ new ways to interact with humans by "traditional" means such as graphical interfaces or non-traditional means such as gesture commands
+3. __Workspace Modeling:__ rapid generation of environment models and how to configure the robot within those environments
 4. __Work-Object Pose Estimation:__ identification and locating known objects in unknown locations (unstructured)
 5. __Path Planning:__ determining optimal motion plans for a robot manipulator while obeying process constraints
 6. __Mobility:__ topics unique to mobile platforms including localization and navigation
@@ -61,12 +61,12 @@ The technology areas (capabilities) mapped against the use cases (applications) 
 
 ![ROS-Industrial Roadmap](pics/RoadmappingGraphic_small.jpg)
 
-The events shown have direct impact on the application areas and will result in development within many of the capabilities areas.  The red connector lines represent concurrent development activities between projects and the capabilities.  The blue lines represent dependencies between technologies and their application.
+The events shown in the above graphic have direct impact on the application areas and will result in development within many of the capabilities areas.  The red connector lines represent concurrent development activities between projects and the capabilities.  The blue lines represent dependencies between technologies and their application.
 
 ### 5. Identify Alternatives and Gaps
 The summaries above provide a high level overview of the needs and potential technology solutions.  In reality, each application will have detailed requirements that need to be mapped against features and performance of various tools within the ROS-Industrial community.  This section attempts to define more specifically some of those needs.
 
-#### Path Planning
+#### 5.1 Path Planning
 
 The path planning subtopic is a cross-cutting and high priority need for the ROS-Industrial community.  Although the broader ROS community continues to focus significant efforts in this area, many of the problems that are of interest to researchers and "field" roboticists involve operation in highly unstructured domains.  These environments are characterized by clutter, uncertainty, and lack of _a priori_ knowledge.  Most industrial applications are afforded more structure such as conveyors, fixturing, and static workcells.  Thus, industrial users expect higher performance as measured by cycle time, reliability, and determinism, at the expense of ability to accomodate greater uncertainty in the environment.
 
@@ -92,9 +92,56 @@ Among these frameworks, numerous planning algorithms are possible, but most are 
 
 None of the known path planners directly provide this set of capabilities and this is a significant barrier for implementing ROS-Industrial applications for processes such as painting, welding, material removal, deposition and other path-based plans.  Note that there is ongoing work within the ROS-Industrial Community to address some of these needs including an [optimizing inverse kinematics trajectory planner](http://wiki.ros.org/industrial_moveit) and a [hybrid Cartesian planner](https://github.com/ros-industrial-consortium/descartes).
 
-In addition, several other needs were identified such as multi arm coordinated planning and cycle-time optimized planning.  Both of these are addressed in some capacity [here](https://github.com/ros-industrial/motoman/tree/hydro-devel/motoman_sda10f_support) for dual arm Motoman support and [here](http://static.squarespace.com/static/51df34b1e4b08840dcfd2841/t/53c3435ce4b00a24507b341d/1405305692771/IDEXX_Planning_Presentation.pdf) for cycle-time optimized planning.  More work is require to broaden and generalize these solutions.
+In addition, several other needs were identified such as multi-arm coordinated planning and cycle-time optimized planning.  Both of these are addressed in some capacity [here](https://github.com/ros-industrial/motoman/tree/hydro-devel/motoman_sda10f_support) for dual arm Motoman support and [here](http://static.squarespace.com/static/51df34b1e4b08840dcfd2841/t/53c3435ce4b00a24507b341d/1405305692771/IDEXX_Planning_Presentation.pdf) for cycle-time optimized planning.  More work is require to broaden and generalize these solutions.
 
 In summary, path planning is cross-cutting need (nearly all the use cases have driving requirements) and there is significant opportunity to make a contributions to these goals.  This need is a high priority for ROS-industrial users.  
+
+#### 5.2 Mobility
+Mobility is an increasingly important topic to industrial users.  Automated Guided Vehicles have been in use commercially for years and initially they were relatively inflexible, following predefined paths and only accommodating static environments.  More recently, advanced systems have been deployed that are able to reliably navigate in dynamic environments and along varied paths.  Fully unconstrained navigation in dynamic and human-trafficked is an uncommon capability and very few industrial mobile manipulators have been commissioned.  These are capabilities that the ROS community has been addressing since the beginning and therefore ROS-Industrial is poised to make significant contributions.
+
+##### Alternatives
+Mobile navigation is really a combination of multiple technologies that include mapping, localization, path planning, and control.  The [ROS Navigation Stack](http://wiki.ros.org/navigation) is the _de facto_ standard for this collection of capabilities.  In practice each subtopic may be uniquely configured and many alternative packages exist.  As an example, we might just look at a few of the simultaneous localization and mapping codes (SLAM):
+
+* [Gmapping](http://wiki.ros.org/gmapping)
+* [Hector SLAM](http://wiki.ros.org/hector_slam)
+* [RTAB-MAP (RGB-D SLAM)](https://code.google.com/p/rtabmap/)
+* [RATSLAM](https://code.google.com/p/ratslam/wiki/RatSLAMROS)
+* many more...
+
+##### Gaps
+
+SLAM methods are inherently probabilistic.  As such, they are subject to errors that can be large especially in highly dynamic maps.  Such a scenario is unacceptable in most industrial applications that demand very high reliability.  Consequently, industrial users have sought to add structure to the localization problem to improve determinism.  Early AGVs used painted lines or wires on the floors to positively localize (and path plan).  To improve flexibility, newer methods are being explored and one that shows promise is a [NAV350 laser scanning navigation sensor from SICK](https://www.mysick.com/PDF/Create.aspx?ProductID=75430&Culture=en-US).  This product uses targets mounted in the facility to enable high-accuracy and high-reliability localization.
+
+The mapping problem include the creation of static maps and addressing dynamic obstacles within the static environment.  SLAM codes such as Gmapping adequately address static map creation.  However, the representation of dynamic object is a complex one and an area of research.  For example, should the robot try to predict the future state of the dynamic object?  What about human interaction?  In some cases simple behaviors may be implemented to avoid some of these problems, for example, pausing motion while dynamic obstacles are present.
+
+Similarly, path planning in an industrial environment still presents research challenges.  For some benign application, such as holonomic platforms that are approximately circular, the combination of the [navfn global planner](http://wiki.ros.org/navfn?distro=indigo) and the [dwa_local_planner](http://wiki.ros.org/dwa_local_planner?distro=indigo) adequately address unconstrained navigation.  Other applications such as Ackerman steered vehicles are less well supported.  Industrial mobile manipulators must also plan for the best base location to conduct the manipulation process.  This, too, is a relatively open problem.
+
+The control problem tends to be hardware-specific and there are tools within the Community such as [ROS_Control](http://wiki.ros.org/ros_control) to assist.  One interesting control problem is that of coordination of the mobile base with the manipulator.  This application is not well supported currently and will likely include both hardware and software solutions.
+
+In summary, the ROS community has a diverse toolkit to address mobility, however the expectations of industrial users present several problems that are still unsolved.
+
+#### 5.3 Hardware Interfaces
+One of the original motivations for the ROS-Industrial project was to address hardware interfaces to common industrial systems including robots, controllers, sensors, and actuators.
+
+##### Alternatives
+There are not many alternatives to address this problem.  There are standards such as [EtherCAT](http://www.ethercat.org) and [OPC-UA](https://opcfoundation.org/about/opc-technologies/opc-ua/) that provide common frameworks for communicating between systems, but ROS support for many of the common protocols and networks is limited.  The robot client-server framework requires custom development for each new robot.  Existing hardware support is listed [here](http://wiki.ros.org/Industrial/supported_hardware).  
+
+##### Gaps
+Several gaps were directly identified by members and include support for Cloos and IGM robots, most field buses, and broadly force control techniques.  In addition, some existing hardware interfaces can benefit from commonization, testing, and performance improvements.
+
+#### 5.4 Hunan Interfaces
+Similar to hardware interfaces, industrial users have unique expectations for human interfaces.  The term HMI (human-machine interface) is often used to represent a graphical touch screen device that is used to command the robot or machine.  Many commercial products exist to create these HMIs and they typically include libraries for connecting to PLCs and higher-level factory information systems.
+
+##### Alternatives
+In the ROS Community, there are not direct analogs to the commercial HMI offering.  However several alternatives exist:
+
+* [rqt](http://wiki.ros.org/rqt) - ROS Qt (rqt) is a ROS framework that builds on the [Qt framework](http://qt-project.org) for developing native user Interfaces
+* [ROSbridge](http://wiki.ros.org/rosbridge_suite) - ROSbridge provides a JSON protocol and implementation for communicating between ROS and non-ROS systems such as web servers.
+
+In addition to PC-based GUIs, ROS provides capacity for other interesting human interfaces such as [gesture recognition](http://wiki.ros.org/rtcus_kinect_gestures) and [speech recognition](http://wiki.ros.org/pocketsphinx).  
+
+##### Gaps
+Even though tools like rqt and ROSbridge are highly flexible, that flexibility comes at a cost in development time.  Most commercial HMI toolkits have templates and standard controls for the common needs.  These don't exist today within ROS-Industrial.  In addition, as described in the hardware interfaces, the HMIs must connect to common industrial hardware and significant gaps exist in these areas.  That being said, ROS-Industrial provides uncommon capabilities, for example the Rviz tool which, among other capabilities, permits viewing real sensor data with simulated robots.  
 
 ### 6. Recommendations and Priorities
 
