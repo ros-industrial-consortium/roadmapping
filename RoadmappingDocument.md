@@ -141,7 +141,31 @@ In the ROS Community, there are not direct analogs to the commercial HMI offerin
 In addition to PC-based GUIs, ROS provides capacity for other interesting human interfaces such as [gesture recognition](http://wiki.ros.org/rtcus_kinect_gestures) and [speech recognition](http://wiki.ros.org/pocketsphinx).  
 
 ##### Gaps
-Even though tools like rqt and ROSbridge are highly flexible, that flexibility comes at a cost in development time.  Most commercial HMI toolkits have templates and standard controls for the common needs.  These don't exist today within ROS-Industrial.  In addition, as described in the hardware interfaces, the HMIs must connect to common industrial hardware and significant gaps exist in these areas.  That being said, ROS-Industrial provides uncommon capabilities, for example the Rviz tool which, among other capabilities, permits viewing real sensor data with simulated robots.  
+Even though tools like rqt and ROSbridge are highly flexible, that flexibility comes at a cost in development time.  Most commercial HMI toolkits have templates and standard controls for the common needs.  These don't exist today within ROS-Industrial.  In addition, as described in the hardware interfaces, the HMIs must connect to common industrial hardware and significant gaps exist in these areas.  That being said, ROS-Industrial provides uncommon capabilities, for example the Rviz tool which, among other capabilities, permits viewing real sensor data with simulated robots.
+
+### 5.5 Workspace Modeling
+Workspace modeling includes the generation of 3D virtual representations of the robot and its environment, tools, and other non-dynamic components.  These representations are critical for visualization, simulation, and collision modeling.  In a mobility application this representation is abstracted into a cost map.  In manipulation applications, full 3D models are needed, and in some cases, multiple representations are needed for collision modeling and visualization.
+
+Workspace modeling also involves the design or layout of the workcell.  Importantly, the location of the robot and workpiece are often critical factors in the dexterity and cycle time of an application.  Optimization of this layout is potentially of high value.
+
+#### Alternatives
+There are two primary methods to generate these models: CAD data and sensor data.  Sensor data can be further separated into prior knowledge (maps etc.) and real-time data.  Each can be considered separately:
+
+* __CAD__ The [Uniform Robot Description Format (URDF)](http://wiki.ros.org/urdf) is the specification for how to represent robots and static objects from CAD.  The format presents semantic information about the object including joint locations and types and geometry files.  There is a [SolidWorks exporter tool](http://wiki.ros.org/sw_urdf_exporter) that automateds much of this process for parts and assemblies.
+* __Static Sensor Data__ Static sensor data is often used in mobility applications and is represented in a cost map layer as part of the Navigation Stack.  There is no direct way to represent 3D data in a static scene other than converting it to a URDF.
+* __Dynamic Sensor Data__ Dynamic or real-time sensor data is often populated into an [occupancy grid](http://wiki.ros.org/occupancy_grid_utils) for 2D data or [Octomap](http://wiki.ros.org/octomap) for 3D data.
+
+For the workspace analysis an [experimental package](https://github.com/ros-planning/moveit_advanced/tree/hydro-devel/moveit_workspace_analysis) exists, but it is not well supported yet.
+
+#### Gaps
+As mentioned above, the URDF and associated geometry files (collada format) are the primary interface for static scene modeling.  Although the SolidWorks exporter aids significantly, there is still a lot of manual manipulation required to generate complex assemblies and often additional work is required for collision models which are generally simplified.  There is an opportunity to further automated these processes and also support other CAD software or a common intermediate file format.
+
+One could also imagine a tool to scan a workspace and automatically generate a model file.  Techniques such as [KinFu](http://pointclouds.org/documentation/tutorials/using_kinfu_large_scale.php) might be applicable for the task.
+
+Finally, additional development and testing is needed for a reliable workspace modeling tool.
+
+### 5.6 Work Object Pose Estimation
+
 
 ### 6. Recommendations and Priorities
 
