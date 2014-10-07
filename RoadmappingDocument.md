@@ -129,7 +129,7 @@ There are not many alternatives to address this problem.  There are standards su
 ##### Gaps
 Several gaps were directly identified by members and include support for Cloos and IGM robots, most field buses, and broadly force control techniques.  In addition, some existing hardware interfaces can benefit from commonization, testing, and performance improvements.
 
-#### 5.4 Hunan Interfaces
+#### 5.4 Human Interfaces
 Similar to hardware interfaces, industrial users have unique expectations for human interfaces.  The term HMI (human-machine interface) is often used to represent a graphical touch screen device that is used to command the robot or machine.  Many commercial products exist to create these HMIs and they typically include libraries for connecting to PLCs and higher-level factory information systems.
 
 ##### Alternatives
@@ -165,7 +165,22 @@ One could also imagine a tool to scan a workspace and automatically generate a m
 Finally, additional development and testing is needed for a reliable workspace modeling tool.
 
 ### 5.6 Work Object Pose Estimation
+The goal of the pose estimation problem is to locate the workpiece in the frame of reference of the robot for manipulation.  Traditionally, this problem is solved via fixturing, but this solution negates the advantages of a programmable robot.  2D vision systems have become commonplace over the two decades.  Under controlled situations, 2D vision can accurately locate uncertain objects.  Typically, lighting and the geometric structure of the problem must be managed; clutter and low-contrast situations are challenging.  3D imaging methods overcome some of these issues by enabling the use of shape to identify and locate objects.  However, the methods to effectively utilize both 2D and 3D imaging to improve pose estimation are still nascent.
 
+#### Alternatives
+There are two primary perception libraries used by the ROS community: [OpenCV](http://opencv.org) for 2D and [PCL](http://pointclouds.org) for 3D.  Both have become powerful, fast, and flexible tools for sensor processing.  For example, OpenCV provides many [template matching](http://docs.opencv.org/doc/tutorials/imgproc/histograms/template_matching/template_matching.html) approaches.  And, PCL has group of [object recognition tools](http://docs.pointclouds.org/trunk/group__recognition.html).  In addition there are several commercial packages that could be integrated within a ROS-Industrial application; the most prominent being [MVTec Halcon](http://www.halcon.com)
+
+#### Gaps
+Object pose estimation, especially in cluttered, poorly lit, or occluded applications requires significant engineering and present uncertain outcomes.  Although these are difficult research problems, many libraries and algorithms are being developed.  Unlike many other technology areas, the ROS-Industrial community is not unique in their requirements here, and can therefore leverage much of the broader community's work.  A significant gap exists however in understanding the performance of these various algorithms in different applications.  One could envision a comprehensive evaluation of current state-of-the-art algorithms on a set of common industrial problems in pose estimation.
+
+### 5.7 Support Services
+The support services cover an important class of non-technical activities that will foster the growth and application of ROS-Industrial.  These topics are essentially all gaps or opportunities in the community and include:
+
+* Better Code Quality Metrics
+* Windows Support
+* Training and Tutorials
+* Developer Support Such as Templates
+* Ongoing Roadmapping Such as This Effort
 
 ### 6. Recommendations and Priorities
 
