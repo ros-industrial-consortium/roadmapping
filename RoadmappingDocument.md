@@ -143,12 +143,12 @@ In addition to PC-based GUIs, ROS provides capacity for other interesting human 
 ##### Gaps
 Even though tools like rqt and ROSbridge are highly flexible, that flexibility comes at a cost in development time.  Most commercial HMI toolkits have templates and standard controls for the common needs.  These don't exist today within ROS-Industrial.  In addition, as described in the hardware interfaces, the HMIs must connect to common industrial hardware and significant gaps exist in these areas.  That being said, ROS-Industrial provides uncommon capabilities, for example the Rviz tool which, among other capabilities, permits viewing real sensor data with simulated robots.
 
-### 5.5 Workspace Modeling
+#### 5.5 Workspace Modeling
 Workspace modeling includes the generation of 3D virtual representations of the robot and its environment, tools, and other non-dynamic components.  These representations are critical for visualization, simulation, and collision modeling.  In a mobility application this representation is abstracted into a cost map.  In manipulation applications, full 3D models are needed, and in some cases, multiple representations are needed for collision modeling and visualization.
 
 Workspace modeling also involves the design or layout of the workcell.  Importantly, the location of the robot and workpiece are often critical factors in the dexterity and cycle time of an application.  Optimization of this layout is potentially of high value.
 
-#### Alternatives
+##### Alternatives
 There are two primary methods to generate these models: CAD data and sensor data.  Sensor data can be further separated into prior knowledge (maps etc.) and real-time data.  Each can be considered separately:
 
 * __CAD__ The [Uniform Robot Description Format (URDF)](http://wiki.ros.org/urdf) is the specification for how to represent robots and static objects from CAD.  The format presents semantic information about the object including joint locations and types and geometry files.  There is a [SolidWorks exporter tool](http://wiki.ros.org/sw_urdf_exporter) that automateds much of this process for parts and assemblies.
@@ -157,23 +157,23 @@ There are two primary methods to generate these models: CAD data and sensor data
 
 For the workspace analysis an [experimental package](https://github.com/ros-planning/moveit_advanced/tree/hydro-devel/moveit_workspace_analysis) exists, but it is not well supported yet.
 
-#### Gaps
+##### Gaps
 As mentioned above, the URDF and associated geometry files (collada format) are the primary interface for static scene modeling.  Although the SolidWorks exporter aids significantly, there is still a lot of manual manipulation required to generate complex assemblies and often additional work is required for collision models which are generally simplified.  There is an opportunity to further automated these processes and also support other CAD software or a common intermediate file format.
 
 One could also imagine a tool to scan a workspace and automatically generate a model file.  Techniques such as [KinFu](http://pointclouds.org/documentation/tutorials/using_kinfu_large_scale.php) might be applicable for the task.
 
 Finally, additional development and testing is needed for a reliable workspace modeling tool.
 
-### 5.6 Work Object Pose Estimation
+#### 5.6 Work Object Pose Estimation
 The goal of the pose estimation problem is to locate the workpiece in the frame of reference of the robot for manipulation.  Traditionally, this problem is solved via fixturing, but this solution negates the advantages of a programmable robot.  2D vision systems have become commonplace over the two decades.  Under controlled situations, 2D vision can accurately locate uncertain objects.  Typically, lighting and the geometric structure of the problem must be managed; clutter and low-contrast situations are challenging.  3D imaging methods overcome some of these issues by enabling the use of shape to identify and locate objects.  However, the methods to effectively utilize both 2D and 3D imaging to improve pose estimation are still nascent.
 
-#### Alternatives
+##### Alternatives
 There are two primary perception libraries used by the ROS community: [OpenCV](http://opencv.org) for 2D and [PCL](http://pointclouds.org) for 3D.  Both have become powerful, fast, and flexible tools for sensor processing.  For example, OpenCV provides many [template matching](http://docs.opencv.org/doc/tutorials/imgproc/histograms/template_matching/template_matching.html) approaches.  And, PCL has group of [object recognition tools](http://docs.pointclouds.org/trunk/group__recognition.html).  In addition there are several commercial packages that could be integrated within a ROS-Industrial application; the most prominent being [MVTec Halcon](http://www.halcon.com)
 
-#### Gaps
+##### Gaps
 Object pose estimation, especially in cluttered, poorly lit, or occluded applications requires significant engineering and present uncertain outcomes.  Although these are difficult research problems, many libraries and algorithms are being developed.  Unlike many other technology areas, the ROS-Industrial community is not unique in their requirements here, and can therefore leverage much of the broader community's work.  A significant gap exists however in understanding the performance of these various algorithms in different applications.  One could envision a comprehensive evaluation of current state-of-the-art algorithms on a set of common industrial problems in pose estimation.
 
-### 5.7 Support Services
+#### 5.7 Support Services
 The support services cover an important class of non-technical activities that will foster the growth and application of ROS-Industrial.  These topics are essentially all gaps or opportunities in the community and include:
 
 * Better Code Quality Metrics
