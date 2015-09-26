@@ -184,4 +184,74 @@ The support services cover an important class of non-technical activities that w
 
 ### 6. Recommendations and Priorities
 
+#### 6.1 Hardware Interfaces
+To Do
+
+#### 6.2 Human Interfaces
+To Do
+
+#### 6.3 Workspace Modeling
+The ROS-Industrial Consortium is addressing the Workspace Modeling topic via a series of five milestone projects known as the CAD to ROS Workbench. Here we provide a roadmap for the future objectives of each milestone. Each milestone is anticipated to have a duration of four months.
+
+##### Milestone 1: URDF GUI Editor 
+* Open and edit new or existing URDFs and xacros 
+* Add an existing URDF or xacro to a second URDF or xacro 
+* Add/modify parent-child relationships in a tree structure with GUI controls 
+* Add/modify tool flange and tool center point (TCP) locations 
+* Edit link and joint properties with GUI controls 
+* Display changed properties instantly in the 3D environment (no need to reload the 3D environment from the command line) 
+* Import/add STL, Collada, and STEP for individual parts (assemblies will treated as a single part for this milestone)
+* Create collision geometry (i.e. convex hulls) for individual part files 
+* Hide/display geometry and origins
+
+##### Milestone 2: Process Planning
+* Create/define a new ROS message for Cartesian process trajectories: CartesianProcessTrajectory 
+* Import Cartesian tool paths/waypoints, tolerances, sensor action tags, and process I/O tags from CSV, Apt, or STEP-NC file to a ROS CartesianProcessTrajectory message 
+* Add/edit CartesianProcessTrajectory waypoints using GUI controls 
+* (Desired) Create new CartesianProcessTrajectory paths from simple CAD features: flat surfaces, edges, holes 
+* (Desired) Import Cartesian tool paths from G-code. Note that this is considered a legacy support capability since STEP-NC is superseding G-code. 
+* (Desired) Export CartesianProcessTrajectory paths to CSV, Apt, STEP-NC and G-code 
+
+##### Milestone 3: Work Cell Planning
+* Create a graphical library from which to drag and drop kinematic chains (i.e. robots) into a work cell URDF 
+* Support GUI-drag/rotate capability for kinematic chains to position a chain in the 3D environment window 
+* Create a workspace analysis tool: Map the reach/dexterity of a serial chain throughout its 3D workspace 
+* Create/store a list of seeds for KDL to ensure a comprehensive solution space is available to MoveIt! planners 
+* Create a robot base pose optimization tool to recommend a robot mounting position, given its CartesianProcessTrajectory 
+* Integrate the MoveIt! Setup Assistant and export to SRDF 
+* (Desired) Expand the definition of URDF to include parallel kinematic chains 
+* (Desired) Expand MoveIt! to natively support parallel kinematic chains 
+* (Desired) Import kinematic chains from Collada and STEP-NC 
+
+##### Milestone 4: Sensor Configuration and Calibration Setup
+* Create a graphical library from which to drag and drop 2D and/or 3D imaging sensors and calibration targets into the 3D environment
+ * Populate the library with existing sensor configuration packages o Populate the library with existing calibration target models 
+ * Update sensor models to include Field of View geometry 
+ * Enable the perspective to snap to the sensor point of view 
+ * Configure sensor parameters such as IP address, frame rate, and data window size with GUI controls 
+* Create intrinsic calibration sequences for individual sensors using a GUI interface
+* Create extrinsic calibration sequences for multiple heterogeneous sensors, synchronized with robot motion and/or synchronized with calibration target motion using a GUI interface. Unique GUIs will be created for four typical use cases: 
+ * Single sensor mounted on the robot’s wrist 
+ * Static stereo pair of sensors mounted a fixed distance apart 
+ * Static array of sensors mounted throughout the work cell and the calibration target mounted on the robot 
+ * Static array of sensors mounted throughout the work cell and calibration target mounted on a conveyor 
+* (Desired) Create extrinsic calibration sequences for a sensor using features of opportunity in the environment (i.e. without a calibration target) 
+* (Desired) Create a launch file editor and analyzer to enable graphical representation of launch file structure and dependencies 
+
+##### Milestone 5: 3D Point Cloud Importer
+*Import and manipulate point cloud data within ROS from a GUI 
+* Create/fit primitives including planes, spheres, cylinders, rectangular solids, and pyramids to segments in the point cloud (human-guided GUI interaction) 
+* Designate point cloud segments as collision geometry 
+* ICP-fit/overlay one point cloud on another point cloud – filtering, segmentation, feature recognition, pose estimation, etc.
+
+#### 6.4 Work-Object Pose Estimation
+To Do
+
+#### 6.5 Path Planning
+To Do
+
+#### 6.6 Mobility
+To Do
+
+#### 6.7 Support Services
 To Do
